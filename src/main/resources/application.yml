@@ -1,0 +1,5 @@
+spring:
+    application:
+        name: spring-msg-templates-api
+server:
+  port: 3030
