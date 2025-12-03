@@ -1,0 +1,14 @@
+package com.ely.spring_msg_templates_api.strategy.impl;
+
+import com.ely.spring_msg_templates_api.dto.TemplateRequestDto;
+import com.ely.spring_msg_templates_api.strategy.TemplateStrategy;
+import org.springframework.stereotype.Component;
+
+@Component("sms")
+public class SmsStrategy implements TemplateStrategy {
+
+    @Override
+    public String getTemplate(TemplateRequestDto data) {
+        return "Type SMS";
+    }
+}

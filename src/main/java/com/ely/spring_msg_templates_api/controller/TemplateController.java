@@ -1,9 +1,9 @@
 package com.ely.spring_msg_templates_api.controller;
 
 import com.ely.spring_msg_templates_api.dto.TemplateRequestDto;
-import com.ely.spring_msg_templates_api.dto.TemplateResponseDto;
 import com.ely.spring_msg_templates_api.service.TemplateService;
 import lombok.AllArgsConstructor;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,8 +17,8 @@ public class TemplateController {
 
     private TemplateService templateService;
 
-    @PostMapping
-    private ResponseEntity<TemplateResponseDto> templateRequest(@RequestBody TemplateRequestDto data) {
+    @PostMapping(produces = MediaType.TEXT_HTML_VALUE)
+    private ResponseEntity<String> templateRequest(@RequestBody TemplateRequestDto data) {
         return ResponseEntity.ok(templateService.handleTemplateRequest(data));
     }
 }
