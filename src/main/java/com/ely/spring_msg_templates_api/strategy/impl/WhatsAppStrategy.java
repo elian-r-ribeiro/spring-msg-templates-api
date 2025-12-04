@@ -1,15 +1,17 @@
 package com.ely.spring_msg_templates_api.strategy.impl;
 
-import com.ely.spring_msg_templates_api.dto.TemplateRequestDto;
+import com.ely.spring_msg_templates_api.dto.TemplatesRequestDto;
 import com.ely.spring_msg_templates_api.strategy.TemplateStrategy;
+import com.ely.spring_msg_templates_api.strategy.util.Utils;
 import org.springframework.stereotype.Component;
 
-@Component("whatsApp")
+import java.io.IOException;
+
+@Component("whatsapp")
 public class WhatsAppStrategy implements TemplateStrategy {
 
-
     @Override
-    public String getTemplate(TemplateRequestDto data) {
-        return "Type WhatsApp";
+    public String getTemplate(TemplatesRequestDto data) throws IOException {
+        return Utils.extractTextFromFile(data, "templates/whatsapp/", ".txt");
     }
 }
